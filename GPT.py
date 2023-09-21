@@ -23,7 +23,20 @@ load_dotenv()
 
 # ChatGPT-3.5のモデルのインスタンスの作成
 chat = ChatOpenAI(model_name="gpt-3.5-turbo",temperature=0.2)
+# チャット用のチェーンのインスタンスの作成
+chain = ConversationChain(
+    llm=chat,
+    prompt=prompt,
+    memory=memory,
+)
+# リプライ用チャット用のチェーンのインスタンスの作成
+chain_reply = ConversationChain(
+    llm=chat,
+    prompt=prompt_reply,
+    memory=memory,
+)
 
+chain.predict(input="相手のプロフィール:\n```\n"+text_your_profile_input+"\n```")
 # セッション内に保存されたチャット履歴のメモリの取得
 try:
     memory = st.session_state["memory"]
