@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 from streamlit_chat import message
 
 from langchain.chat_models import ChatOpenAI
