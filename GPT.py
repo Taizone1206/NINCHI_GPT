@@ -19,7 +19,7 @@ from langchain.prompts import (
 from langchain.schema import AIMessage
 from dotenv import load_dotenv
 # 環境変数の読み込み
-load_dotenv()
+load_dotenv(OPENAI_API_KEY)
 
 # ChatGPT-3.5のモデルのインスタンスの作成
 chat = ChatOpenAI(model_name="gpt-3.5-turbo",temperature=0.2)
